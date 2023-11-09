@@ -1,0 +1,8 @@
+#This api key will get from walleter account 
+API_KEY=EEgOZAU2PvDdOHp6lbi1lQmYpfByqmSesJmWByUzMIvF0SBN77knQBi9MgtDn6SoP8KJBxfTcXJBYQryodXaq87fIlvpsa1brATu
+#This is the wallester primary account id
+MAIN_ACCOUNT_ID=aa3227cd-7863-418c-854e-53f7f66f4679
+#This is company need to fetach from api
+COMPANY_ID=e22e9898-8687-41c1-999d-370cedd9259e
+#This is for payzocard api auth
+API_AUTH_KEY=9bd35679-d7ad-4c44-b02b-92a3a2588476
