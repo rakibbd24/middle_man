@@ -4,15 +4,17 @@ from flask_restful import Api, Resource, reqparse
 from datetime import datetime
 from flask_cors import cross_origin
 from functools import wraps
-import os
 from .interface import InterfaceWallet
 from .backend import Api
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # Blueprint Configuration
 auth = Blueprint('details_api', __name__)
 VERSION = "1.0"
-# Here api key provided to the server A for send reqeset 
-api_key = "bcb19744374c60ca8874cc5039eab687"
+api_key = os.getenv("API_AUTH_KEY")
 unauth_data = {
     "status": "error",
     "message": "You are not authorized"
