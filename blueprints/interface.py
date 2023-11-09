@@ -9,6 +9,9 @@ from datetime import datetime, timedelta
 import operator
 import itertools
 from copy import deepcopy
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 
@@ -72,24 +75,22 @@ def find_card(json_data: dict, last_four_digits: str):
 
 class InterfaceWallet:
     def __init__(self):
-        #Main account id get from wallester account
-        self.main_account_id = "914b23a6cad1154f90afed744751652a"
+        self.main_account_id = os.getenv("MAIN_ACCOUNT_ID")
         self.public_key = ""
         self.private_key = ""
         with open("key_private", "r") as fh:
             self.private_key = fh.read()
         with open("key_public", "r") as fh:
             self.public_key = fh.read()
-        #Company id get from wallester 
-        self.company_id = "e917ac914f21570a974d236788f1780e"
+
+        self.company_id = os.getenv("COMPANY_ID")
         self.headers = {
             "Authorization": "",
             "Content-Type": "application/json"
         }
 
     def get_encoded(self):
-                                #Api key get from wallester
-        auth_data = {"api_key": "6XenZdrlCCIEIy3aQnb5QytgmHJ1K6fX",
+        auth_data = {"api_key": os.getenv("API_KEY"),
                      "ts": math.floor(time.time())
                      }
         encoded = jwt.encode(auth_data, self.private_key, algorithm='RS256')
